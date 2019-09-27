@@ -14,25 +14,25 @@ In particular, see the `StartgRPCD` function below:
 package app
 
 import (
-	"fmt"
+  "fmt"
 
-	"github.com/labstack/echo/v4"
-	"github.com/geomyidia/reverb"
+  "github.com/labstack/echo/v4"
+  "github.com/geomyidia/reverb"
 )
 
 // Application ...
 type Application struct {
-	Config *cfg.Config
-	HTTPD  *echo.Echo
-	GRPCD  *reverb.Reverb
+  Config *cfg.Config
+  HTTPD  *echo.Echo
+  GRPCD  *reverb.Reverb
 }
 
 // StartgRPCD ...
 func (a *Application) StartgRPCD() {
-	serverOpts := fmt.Sprintf("%s:%d", a.Config.GRPCD.Host, a.Config.GRPCD.Port)
-	server := a.GRPCD.Start(serverOpts)
-	a.SetupgRPCImplementation(server)
-	server.Serve()
+  serverOpts := fmt.Sprintf("%s:%d", a.Config.GRPCD.Host, a.Config.GRPCD.Port)
+  server := a.GRPCD.Start(serverOpts)
+  a.SetupgRPCImplementation(server)
+  server.Serve()
 }
 
 // Setup for other services, e.g., HTTPD
@@ -40,8 +40,8 @@ func (a *Application) StartgRPCD() {
 
 // Start all services
 func (a *Application) Start() {
-    a.StartgRPCD()
-    a.StartHTTPD()
-    ...
+  a.StartgRPCD()
+  a.StartHTTPD()
+  ...
 }
 ```
