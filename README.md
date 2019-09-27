@@ -40,7 +40,7 @@ func (a *Application) StartgRPCD() {
 
 // Start all services
 func (a *Application) Start() {
-	a.StartgRPCD()
+    a.StartgRPCD()
     a.StartHTTPD()
     ...
 }
