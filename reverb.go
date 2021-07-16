@@ -45,3 +45,8 @@ func (r *Reverb) Register() {
 func (r *Reverb) Serve() {
 	r.GRPCServer.Serve(r.TCPListener)
 }
+
+// Close ...
+func (r *Reverb) Close() {
+	r.TCPListener.Close()
+}
