@@ -48,5 +48,7 @@ func (r *Reverb) Serve() {
 
 // Close ...
 func (r *Reverb) Close() {
-	r.TCPListener.Close()
+	if r.TCPListener != nil {
+		r.TCPListener.Close()
+	}
 }
